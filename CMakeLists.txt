@@ -14,3 +14,11 @@ add_executable( grindstone
 target_link_libraries( grindstone
     ${TOMAHAWK_LIBRARIES}
 )
+
+
+include(GNUInstallDirs)
+INSTALL( TARGETS grindstone
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
