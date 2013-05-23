@@ -1,5 +1,5 @@
 
-#include <resolvers/QtScriptResolver.h>
+#include <resolvers/JSResolver.h>
 #include <jobview/JobStatusView.h>
 #include <jobview/JobStatusModel.h>
 #include <Pipeline.h>
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     QString tomahawkjsPath = settings.value( "tomahawkjsPath" ).toString();
     settings.endGroup();
 
-    // add the tomahawkksPath to the QtScriptResolver arguments
+    // add the tomahawkksPath to the JSResolver arguments
     if( tomahawkjsPath.isNull() )
     {
         qDebug() << "**********************************************************************";
@@ -72,14 +72,14 @@ int main(int argc, char **argv)
         arguments << tomahawkjsPath;
     }
 
-    //HACK: this really shouldn't be coupled so badly, you shouldn't need to init the job view just to use qtscriptresolver
+    //HACK: this really shouldn't be coupled so badly, you shouldn't need to init the job view just to use JSresolver
     JobStatusView* jobsView = new JobStatusView( 0 );
     JobStatusModel* sourceModel = new JobStatusModel( jobsView );
     JobStatusSortModel* jobsModel = new JobStatusSortModel( jobsView );
     jobsModel->setJobModel( sourceModel );
     jobsView->setModel( jobsModel );
 
-    QtScriptResolver* resolver = new QtScriptResolver( arguments.takeFirst(), arguments );
+    JSResolver* resolver = new JSResolver( arguments.takeFirst(), arguments );
 
     // poc: you're able to init this here
     new Tomahawk::Pipeline( 0 );
