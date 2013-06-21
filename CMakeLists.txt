@@ -5,6 +5,7 @@ include( ${TOMAHAWK_USE_FILE} )
 
 include_directories(
     ${TOMAHAWK_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_LIST_DIR}
 )
 
 set(CMAKE_AUTOMOC ON)
