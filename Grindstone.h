@@ -16,20 +16,30 @@
  *   along with Tomahawk. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Grindstone.h"
+#ifndef GRINDSTONE_H
+#define GRINDSTONE_H
 
-#include <QCoreApplication>
-#include <QStringList>
-#include <QDebug>
+#include <QApplication>
 
-int main(int argc, char **argv)
+class JSResolver;
+class QMainWindow;
+
+class Grindstone : public QApplication
 {
-    // set application data for QSettings
-    QCoreApplication::setOrganizationName( "Tomahawk" );
-    QCoreApplication::setOrganizationDomain( "tomahawk-player.org" );
-    QCoreApplication::setApplicationName( "Grindstone" );
+Q_OBJECT
 
-    Grindstone app(argc, argv);
+public:
+    Grindstone( int& argc, char *argv[] );
+    virtual ~Grindstone();
 
-    return app.exec();
-}
+private slots:
+    void onConfigDialogAccepted();
+
+private:
+    void quit();
+
+    QMainWindow* m_mainWindow;
+    JSResolver* m_resolver;
+};
+
+#endif // GRINDSTONE_H

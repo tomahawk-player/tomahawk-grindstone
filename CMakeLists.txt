@@ -7,8 +7,12 @@ include_directories(
     ${TOMAHAWK_INCLUDE_DIRS}
 )
 
+set(CMAKE_AUTOMOC ON)
+
 add_executable( grindstone
     main.cpp
+    Grindstone.cpp
+    ResolverDialog.cpp
 )
 
 target_link_libraries( grindstone
