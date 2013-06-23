@@ -19,11 +19,12 @@
 #include "Grindstone.h"
 #include "ResolverDialog.h"
 
-#include <resolvers/JSResolver.h>
-#include <Pipeline.h>
+#include <accounts/AccountConfigWidget.h>
 #include <jobview/JobStatusView.h>
 #include <jobview/JobStatusModel.h>
-#include <accounts/AccountConfigWidget.h>
+#include <resolvers/JSResolver.h>
+#include <utils/Logger.h>
+#include <Pipeline.h>
 
 #include <QDebug>
 #include <QSettings>
