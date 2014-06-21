@@ -109,7 +109,7 @@ Grindstone::Grindstone(int& argc, char* argv[])
     // poc: you're able to init this here - also we need it to start the resolver ...
     new Tomahawk::Pipeline( 0 );
 
-    m_resolver = new JSResolver( arguments.takeFirst(), arguments );
+    m_resolver = new JSResolver( uuid(), arguments.takeFirst(), arguments );
     m_resolver->start();
 
 
