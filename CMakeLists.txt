@@ -11,6 +11,11 @@ include_directories(
 
 set(CMAKE_AUTOMOC ON)
 
+if( NOT TOMAHAWK_QT5 )
+    add_definitions( "-DQ_DECL_FINAL=" )
+    add_definitions( "-DQ_DECL_OVERRIDE=" )
+endif()
+
 add_executable( grindstone
     main.cpp
     Grindstone.cpp
